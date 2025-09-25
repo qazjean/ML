@@ -4,7 +4,6 @@ from zipfile import ZipFile
 import os
 
 topic = "credit card fraud detection"
-
 datasets_list = kaggle.api.dataset_list(search=topic)
 
 if not datasets_list:
@@ -50,9 +49,9 @@ else:
         if "Class" in df.columns:
             target = "Class"
         else:
-            raise ValueError("Не найден целевой признак (Class или isFraud)")
+            raise ValueError("Не найден целевой признак Class")
 
-        X = df.drop(columns=[target])  
+        X = df.drop(columns=[target])
         y = df[target]
 
         print(f"\nЦелевая переменная: {target}")
@@ -71,4 +70,5 @@ else:
         print("\nИнформация о данных сохранена в 'dataset_info.txt'")
     else:
         print("В архиве не найдено CSV-файлов.")
+
 
