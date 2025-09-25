@@ -48,8 +48,10 @@ else:
         # Для датасета creditcard.csv целевой признак = "Class"
         if "Class" in df.columns:
             target = "Class"
+        elif "isFraud" in df.columns:
+            target = "isFraud"
         else:
-            raise ValueError("Не найден целевой признак Class")
+            raise ValueError("Не найден целевой признак (Class или isFraud)")
 
         X = df.drop(columns=[target])
         y = df[target]
@@ -70,5 +72,3 @@ else:
         print("\nИнформация о данных сохранена в 'dataset_info.txt'")
     else:
         print("В архиве не найдено CSV-файлов.")
-
-
