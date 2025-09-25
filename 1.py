@@ -4,7 +4,6 @@ from zipfile import ZipFile
 import os
 
 topic = "credit card fraud detection"
-print(f"Поиск датасетов по теме: '{topic}'...")
 
 datasets_list = kaggle.api.dataset_list(search=topic)
 
@@ -22,7 +21,6 @@ else:
 
     # Скачивание архива
     if not os.path.exists(zip_file_name):
-        print(f"Скачиваем датасет '{dataset_name}'...")
         kaggle.api.dataset_download_files(dataset_name, quiet=False, unzip=False)
         if os.path.exists(f"{dataset_name.split('/')[1]}.zip"):
             os.rename(f"{dataset_name.split('/')[1]}.zip", zip_file_name)
@@ -73,3 +71,4 @@ else:
         print("\nИнформация о данных сохранена в 'dataset_info.txt'")
     else:
         print("В архиве не найдено CSV-файлов.")
+
