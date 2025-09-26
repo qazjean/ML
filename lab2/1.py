@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from datetime import datetime
 url = "https://lenta.ru"
 #class="card-mini _longgrid"
 #"card-big _slider _dark _popular _article"
@@ -33,3 +32,4 @@ if __name__ == "__main__":
     print(df.head())
     df.to_csv("lenta_news.csv", index=False, encoding="utf-8")
     print("\nРезультат сохранён в lenta_news.csv")
+
